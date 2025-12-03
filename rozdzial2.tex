@@ -1,0 +1,39 @@
+\chapter{Analiza wydajności i porównanie modeli}
+
+W tym rozdziale przedstawiono dane ilościowe oraz porównanie modeli.
+
+\section{Wzrost produktywności (Ilustracja)}
+
+Badania Microsoft Research wykazują, że programiści z asystentami AI kończą zadania szybciej. Poniższy wykres (Rysunek \ref{fig:adopcja}) obrazuje ten trend.
+
+\begin{figure}[H]
+    \centering
+    % UWAGA: Musisz mieć plik wykres.png w folderze!
+    \includegraphics[width=0.8\textwidth]{wykres.png} 
+    \caption{Wzrost efektywności pracy programistów (Źródło: opracowanie własne)}
+    \label{fig:adopcja}
+\end{figure}
+
+Seniorzy zyskują głównie na oszczędności czasu przy wyszukiwaniu informacji w dokumentacji \cite{sommerville2015}.
+
+\section{Porównanie modeli (Tabela)}
+
+Tabela \ref{tab:modele} przedstawia zestawienie popularnych rozwiązań.
+
+\begin{table}[H]
+    \centering
+    \caption{Porównanie modeli LLM (Stan na Q1 2025)}
+    \label{tab:modele}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|l|c|r|l|}
+        \hline
+        \textbf{Model} & \textbf{Dostawca} & \textbf{Kontekst} & \textbf{Licencja} \\
+        \hline
+        GPT-4 Turbo & OpenAI & 128k & Komercyjna \\
+        \hline
+        Claude 3 & Anthropic & 200k & Komercyjna \\
+        \hline
+        Llama 3 & Meta & 8k & Open Source \\
+        \hline
+    \end{tabular}
+\end{table}

@@ -1,144 +1,57 @@
 \documentclass[11pt, a4paper]{report}
 
-% ---------------------------------------------------------
-% PAKIETY (PREAMBUŁA)
-% ---------------------------------------------------------
-\usepackage[polish]{babel}    % Język polski (dzielenie wyrazów, nazwy rozdziałów)
+% --- PREAMBUŁA ---
+\usepackage[polish]{babel}    % Język polski
 \usepackage[utf8]{inputenc}   % Kodowanie znaków
 \usepackage[T1]{fontenc}      % Kodowanie fontów
-\usepackage{graphicx}         % Obsługa obrazków
-\usepackage{float}            % Lepsze pozycjonowanie tabel/obrazków
-\usepackage{url}              % Obsługa linków (dla GitHuba)
-\usepackage{hyperref}         % Aktywne linki w PDF
-\usepackage{fancyhdr}         % Niestandardowe nagłówki i stopki
+\usepackage{graphicx}         % Obsługa grafik
+\usepackage{float}            % Pozycjonowanie (H)
+\usepackage{url}              % Linki
+\usepackage{hyperref}         % Aktywne odnośniki w PDF
+\usepackage{fancyhdr}         % Nagłówki i stopki
+\usepackage{booktabs}         % Ładniejsze tabele
 
-% ---------------------------------------------------------
-% KONFIGURACJA NAGŁÓWKÓW (WYMÓG ZADANIA)
-% ---------------------------------------------------------
+% --- KONFIGURACJA NAGŁÓWKÓW ---
 \pagestyle{fancy}
-\fancyhf{} % Wyczyść domyślne ustawienia
-% Lewa strona nagłówka: Tytuł aktualnego rozdziału
-\fancyhead[L]{\nouppercase{\leftmark}} 
-% Prawa strona nagłówka: Autor (WYMÓG)
-\fancyhead[R]{Jan Kowalski} 
-% Środek stopki: Numer strony
-\fancyfoot[C]{\thepage}
+\fancyhf{} 
+\fancyhead[L]{\nouppercase{\leftmark}} % Lewa: Tytuł rozdziału
+\fancyhead[R]{Szymon Płócienniczak}            % Prawa: Twój podpis
+\fancyfoot[C]{\thepage}                % Środek stopki: Numer strony
 
-% Ustawienia metadanych PDF (dla ePortalu)
+% --- METADANE PDF ---
 \hypersetup{
-    pdftitle={Raport Końcowy},
-    pdfauthor={Jan Kowalski}
+    pdftitle={Analiza wpływu GenAI na inżynierię oprogramowania},
+    pdfauthor={Szymon Płócienniczak}
 }
 
-% ---------------------------------------------------------
-% DANE DO STRONY TYTUŁOWEJ
-% ---------------------------------------------------------
-\title{Tytuł Twojego Projektu}
-\author{Jan Kowalski} % Podpisany autor
-\date{\today}         % Data powstania dokumentu
+% --- STRONA TYTUŁOWA ---
+\title{Analiza wpływu Generatywnej Sztucznej Inteligencji na efektywność procesów wytwarzania oprogramowania}
+\author{Jan Kowalski}
+\date{\today}
 
 % =========================================================
 % TREŚĆ DOKUMENTU
 % =========================================================
 \begin{document}
 
-% 1. Strona tytułowa
 \maketitle
 
-% 2. Streszczenie (Abstract)
+% --- STRESZCZENIE ---
 \begin{abstract}
-    To jest streszczenie dokumentu. W pracy przedstawiono analizę przykładowego problemu, wykorzystując tabele, wykresy oraz listy. Dokument został sformatowany w systemie \LaTeX{} przy użyciu klasy \texttt{report}.
+    Niniejszy raport przedstawia analizę wpływu narzędzi opartych na Dużych Modelach Językowych (LLM), takich jak GitHub Copilot czy ChatGPT, na pracę inżynierów oprogramowania. Dokument omawia ewolucję narzędzi, przedstawia dane dotyczące wzrostu produktywności, analizuje zagrożenia bezpieczeństwa oraz wyzwania prawne. Całość uzupełnia prognoza dotycząca autonomicznych agentów AI. Praca została sformatowana w systemie \LaTeX{} z wykorzystaniem klasy \texttt{report}.
 \end{abstract}
 
-% 3. Spis treści
+% --- SPIS TREŚCI ---
 \tableofcontents
 
-% 4. Rozdziały
-\chapter{Wstęp i Teoria}
+% --- ROZDZIAŁY ---
+\input{rozdzial1}
+\input{rozdzial2}
+\input{rozdzial3}
+\input{rozdzial4}
+\input{wnioski}
 
-W tym rozdziale wprowadzamy do tematyki. Poniżej znajduje się przykład listy nienumerowanej oraz numerowanej.
-
-\section{Listy (Wymóg zadania)}
-
-Lista nienumerowana:
-\begin{itemize}
-    \item Pierwszy ważny punkt analizy.
-    \item Drugi punkt dotyczący metodologii.
-    \item Trzeci aspekt problemu.
-\end{itemize}
-
-Lista numerowana:
-\begin{enumerate}
-    \item Krok pierwszy: Zbieranie danych.
-    \item Krok drugi: Przetwarzanie.
-    \item Krok trzeci: Wnioskowanie.
-\end{enumerate}
-
-Jak zauważa Nowak w swojej pracy \cite{nowak2023}, listy pomagają porządkować treść.
-
-\chapter{Analiza Danych}
-
-W tym rozdziale prezentujemy wyniki w formie graficznej i tabelarycznej.
-
-\section{Ilustracje}
-
-Poniżej przedstawiono schemat działania systemu (Rysunek \ref{fig:moj_obrazek}).
-
-\begin{figure}[H]
-    \centering
-    % UWAGA: Musisz mieć plik 'obrazek.jpg' lub 'obrazek.png' w folderze projektu!
-    % Jeśli nie masz, zakomentuj linię poniżej znakiem %
-    \includegraphics[width=0.6\textwidth]{obrazek.png} 
-    \caption{Podpis pod rysunkiem (Wymóg: min. 1 ilustracja)}
-    \label{fig:moj_obrazek}
-\end{figure}
-
-Zgodnie z badaniami \cite{kowalski2024}, wizualizacja danych przyspiesza ich zrozumienie.
-
-\section{Tabele}
-
-Poniższa tabela (Tabela \ref{tab:dane}) prezentuje zebrane wyniki.
-
-\begin{table}[H]
-    \centering
-    \caption{Zestawienie wyników pomiarowych (Wymóg: min. 1 tabela)}
-    \label{tab:dane}
-    \begin{tabular}{|c|l|r|}
-        \hline
-        \textbf{Lp.} & \textbf{Parametr} & \textbf{Wartość} \\
-        \hline
-        1 & Temperatura & 23.5 C \\
-        \hline
-        2 & Ciśnienie & 1013 hPa \\
-        \hline
-        3 & Wilgotność & 45 \% \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\chapter{Wnioski}
-
-Niniejszy dokument został przygotowany zgodnie z postawionymi wymaganiami.
-
-\section*{Uzasadnienie wyboru klasy dokumentu}
-Do wykonania zadania wybrano klasę \textbf{report}. 
-Klasa ta jest idealna do tworzenia prac dyplomowych i raportów technicznych średniej długości. 
-W przeciwieństwie do klasy \texttt{article}, obsługuje ona podział na rozdziały (\texttt{chapter}) oraz dedykowaną stronę tytułową. 
-Z kolei w odróżnieniu od klasy \texttt{book}, klasa \texttt{report} domyślnie nie wymusza druku dwustronnego (nie wstawia pustych stron po rozdziałach), co jest korzystniejsze przy oddawaniu projektu w formie cyfrowej (PDF) na ePortal.
-
-\section*{Dostęp do źródeł}
-Źródła całego dokumentu dostępne są w repozytorium pod adresem: \\
-\url{https://github.com/twoj-nick/nazwa-repozytorium}
-
-W repozytorium zastosowano plik \texttt{.gitignore}, aby ukryć pliki tymczasowe kompilacji oraz dane osobiste edytora.
-
-% 5. Bibliografia
-\begin{thebibliography}{9}
-    \bibitem{nowak2023} 
-    A. Nowak, \textit{Wstęp do systemu LaTeX}, Wydawnictwo PWr, Wrocław 2023.
-    
-    \bibitem{kowalski2024} 
-    J. Kowalski, \textit{Analiza danych w inżynierii}, O'Reilly, 2024.
-\end{thebibliography}
+% --- BIBLIOGRAFIA ---
+\input{bibliografia}
 
 \end{document}
