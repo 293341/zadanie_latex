@@ -9,9 +9,9 @@ Projekt raportu technicznego przygotowany w systemie składu tekstu **LaTeX**. D
 
 Projekt posiada strukturę modułową, co ułatwia zarządzanie treścią:
 
-* **`main.tex`** – Główny plik sterujący (konfiguracja preambuły, dołączanie rozdziałów).
-* **`rozdzial1.tex`** – Wstęp i ewolucja narzędzi (Listy).
-* **`rozdzial2.tex`** – Analiza danych i wydajności (Tabele, Wykresy).
+* **`main.tex`** – Główny plik sterujący.
+* **`rozdzial1.tex`** – Wstęp i ewolucja narzędzi.
+* **`rozdzial2.tex`** – Analiza danych i wydajności.
 * **`rozdzial3.tex`** – Wyzwania etyczne i bezpieczeństwo.
 * **`rozdzial4.tex`** – Przyszłość: Agenci autonomiczni.
 * **`wnioski.tex`** – Podsumowanie i uzasadnienie doboru narzędzi.
