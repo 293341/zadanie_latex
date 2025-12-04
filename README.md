@@ -5,7 +5,7 @@
 
 Projekt raportu technicznego przygotowany w systemie składu tekstu **LaTeX**. Dokument analizuje wpływ Generatywnej Sztucznej Inteligencji (LLM) na efektywność, bezpieczeństwo i przyszłość procesów wytwarzania oprogramowania.
 
-## �� Zawartość repozytorium
+## Zawartość repozytorium
 
 Projekt posiada strukturę modułową, co ułatwia zarządzanie treścią:
 
