@@ -1,57 +1,47 @@
 \documentclass[11pt, a4paper]{report}
 
-% --- PREAMBUŁA ---
-\usepackage[polish]{babel}    % Język polski
-\usepackage[utf8]{inputenc}   % Kodowanie znaków
-\usepackage[T1]{fontenc}      % Kodowanie fontów
-\usepackage{graphicx}         % Obsługa grafik
-\usepackage{float}            % Pozycjonowanie (H)
-\usepackage{url}              % Linki
-\usepackage{hyperref}         % Aktywne odnośniki w PDF
-\usepackage{fancyhdr}         % Nagłówki i stopki
-\usepackage{booktabs}         % Ładniejsze tabele
+\usepackage[polish]{babel}   
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}     
+\usepackage{graphicx}        
+\usepackage{float}          
+\usepackage{url}           
+\usepackage{hyperref}         
+\usepackage{fancyhdr}         
+\usepackage{booktabs}       
 
-% --- KONFIGURACJA NAGŁÓWKÓW ---
 \pagestyle{fancy}
-\fancyhf{} 
-\fancyhead[L]{\nouppercase{\leftmark}} % Lewa: Tytuł rozdziału
-\fancyhead[R]{Szymon Płócienniczak}            % Prawa: Twój podpis
-\fancyfoot[C]{\thepage}                % Środek stopki: Numer strony
-
-% --- METADANE PDF ---
-\hypersetup{
-    pdftitle={Analiza wpływu GenAI na inżynierię oprogramowania},
-    pdfauthor={Szymon Płócienniczak}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}} 
+\fancyhead[R]{Szymon Płócienniczak} 
+\fancyfoot[C]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}} 
+\fancypagestyle{plain}{
+    \fancyhf{} 
+    \fancyhead[L]{\nouppercase{\leftmark}} 
+    \fancyhead[R]{Szymon Płócienniczak} 
+    \fancyfoot[C]{\thepage}
 }
 
-% --- STRONA TYTUŁOWA ---
 \title{Analiza wpływu Generatywnej Sztucznej Inteligencji na efektywność procesów wytwarzania oprogramowania}
 \author{Szymon Płócienniczak}
-\date{\today}
+\date{03.12.2025}
 
-% =========================================================
-% TREŚĆ DOKUMENTU
-% =========================================================
 \begin{document}
 
 \maketitle
 
-% --- STRESZCZENIE ---
 \begin{abstract}
     Niniejszy raport przedstawia analizę wpływu narzędzi opartych na Dużych Modelach Językowych (LLM), takich jak GitHub Copilot czy ChatGPT, na pracę inżynierów oprogramowania. Dokument omawia ewolucję narzędzi, przedstawia dane dotyczące wzrostu produktywności, analizuje zagrożenia bezpieczeństwa oraz wyzwania prawne. Całość uzupełnia prognoza dotycząca autonomicznych agentów AI. Praca została sformatowana w systemie \LaTeX{} z wykorzystaniem klasy \texttt{report}.
 \end{abstract}
 
-% --- SPIS TREŚCI ---
 \tableofcontents
 
-% --- ROZDZIAŁY ---
 \input{rozdzial1}
 \input{rozdzial2}
 \input{rozdzial3}
 \input{rozdzial4}
 \input{wnioski}
-
-% --- BIBLIOGRAFIA ---
 \input{bibliografia}
 
 \end{document}

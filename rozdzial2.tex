@@ -1,39 +1,46 @@
 \chapter{Analiza wydajności i porównanie modeli}
 
-W tym rozdziale przedstawiono dane ilościowe oraz porównanie modeli.
+W tym rozdziale przedstawiono dane ilościowe dotyczące wpływu AI na szybkość pisania kodu oraz porównanie techniczne najpopularniejszych modeli dostępnych na rynku w roku 2024. Analiza opiera się na zagregowanych danych z raportów branżowych oraz testów wydajnościowych (benchmarków) takich jak HumanEval.
 
-\section{Wzrost produktywności (Ilustracja)}
+\section{Wzrost produktywności}
 
-Badania Microsoft Research wykazują, że programiści z asystentami AI kończą zadania szybciej. Poniższy wykres (Rysunek \ref{fig:adopcja}) obrazuje ten trend.
+Badania przeprowadzone przez Microsoft Research we współpracy z GitHub wykazały, że programiści korzystający z asystentów AI są w stanie ukończyć zadania programistyczne znacznie szybciej. W eksperymencie, w którym jedna grupa korzystała z Copilota, a druga nie, grupa wspierana przez AI ukończyła zadanie średnio o 55\% szybciej.
+
+Poniższy wykres (Rysunek \ref{fig:adopcja}) obrazuje rosnący trend adopcji narzędzi AI w latach 2022-2024.
 
 \begin{figure}[H]
     \centering
-    % UWAGA: Musisz mieć plik wykres.png w folderze!
     \includegraphics[width=0.8\textwidth]{wykres.jpg} 
-    \caption{Wzrost efektywności pracy programistów (Źródło: opracowanie własne)}
+    \caption{Szacowany wzrost efektywności pracy programistów przy użyciu narzędzi AI (Źródło: opracowanie własne na podst. danych rynkowych)}
     \label{fig:adopcja}
 \end{figure}
 
-Seniorzy zyskują głównie na oszczędności czasu przy wyszukiwaniu informacji w dokumentacji \cite{sommerville2015}.
+Warto zauważyć interesującą korelację: największy przyrost wydajności obserwuje się u programistów poziomu Junior oraz Mid. Seniorzy zyskują relatywnie mniej na samej szybkości pisania kodu (gdyż piszą go rzadziej), ale znacząco oszczędzają czas na wyszukiwaniu informacji w dokumentacji oraz na tzw. *context switching* (przełączaniu się między zadaniami) \cite{sommerville2015}.
 
-\section{Porównanie modeli (Tabela)}
+\section{Porównanie wiodących modeli LLM}
 
-Tabela \ref{tab:modele} przedstawia zestawienie popularnych rozwiązań.
+Na rynku dostępnych jest wiele modeli, które różnią się nie tylko jakością generowanego kodu, ale także parametrami technicznymi, takimi jak okno kontekstowe. Okno kontekstowe (wyrażane w tokenach) determinuje, jak dużo kodu model "widzi" i "pamięta" w jednej sesji. Jest to kluczowe przy pracy z dużymi projektami legacy.
+
+Tabela \ref{tab:modele} przedstawia zestawienie najpopularniejszych rozwiązań stosowanych w IT.
 
 \begin{table}[H]
     \centering
-    \caption{Porównanie modeli LLM (Stan na Q1 2025)}
+    \caption{Porównanie popularnych modeli LLM pod kątem zastosowań w programowaniu (Stan na Q1 2025)}
     \label{tab:modele}
-    \renewcommand{\arraystretch}{1.3}
+    \renewcommand{\arraystretch}{1.3} 
     \begin{tabular}{|l|c|r|l|}
         \hline
-        \textbf{Model} & \textbf{Dostawca} & \textbf{Kontekst} & \textbf{Licencja} \\
+        \textbf{Model} & \textbf{Dostawca} & \textbf{Okno Kontekstowe} & \textbf{Typ Licencji} \\
         \hline
-        GPT-4 Turbo & OpenAI & 128k & Komercyjna \\
+        GPT-4 Turbo & OpenAI & 128 000 tokenów & Komercyjna (API) \\
         \hline
-        Claude 3 & Anthropic & 200k & Komercyjna \\
+        Claude 3 Opus & Anthropic & 200 000 tokenów & Komercyjna \\
         \hline
-        Llama 3 & Meta & 8k & Open Source \\
+        Llama 3 & Meta & 8 192 tokeny & Open Source \\
+        \hline
+        Codex & OpenAI & 4 096 tokenów & Wycofana (Legacy) \\
         \hline
     \end{tabular}
 \end{table}
+
+Jak wynika z Tabeli \ref{tab:modele}, model Claude 3 Opus oferuje największe okno kontekstowe, co czyni go idealnym do analizy całych repozytoriów kodu. Z kolei modele Open Source, takie jak Llama 3, zyskują na popularności w sektorze bankowym i wojskowym, gdzie firmy nie mogą przesyłać swojego kodu do chmury publicznej ze względów bezpieczeństwa i regulacji RODO/GDPR.

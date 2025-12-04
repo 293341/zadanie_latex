@@ -1,23 +1,30 @@
-\chapter{Ewolucja narzędzi wspomagających programowanie}
+\chapter{Ewolucja narzędzi programowych}
 
-Rozwój inżynierii oprogramowania jest nierozerwalnie związany z automatyzacją. Od prostych autouzupełnień, przez statyczną analizę kodu, aż po systemy oparte na sieciach neuronowych (Transformer) \cite{vaswani2017}.
+Rozwój inżynierii oprogramowania jest nierozerwalnie związany z dążeniem do automatyzacji procesów powtarzalnych. Historycznie, programiści polegali na prostych mechanizmach autouzupełniania (ang. \textit{autocomplete}) opartych na statycznej analizie składni. Jednakże, ostatnia dekada przyniosła rewolucję w postaci systemów uczących się. Punktem zwrotnym stało się opublikowanie architektury Transformer przez badaczy Google w pracy "Attention Is All You Need" \cite{vaswani2017}, co umożliwiło modelom rozumienie szerszego kontekstu kodu, a nie tylko pojedynczych tokenów.
 
 \section{Rola LLM w cyklu SDLC}
-Sztuczna inteligencja staje się integralną częścią środowiska pracy programisty. Jak wskazuje raport GitHub Octoverse \cite{github2023}, adopcja tych narzędzi przyspiesza o 30\% w skali roku.
+
+Duże Modele Językowe (LLM) znajdują zastosowanie na każdym etapie cyklu życia oprogramowania (SDLC - Software Development Life Cycle). Jak wskazuje Thomas Dohmke w raporcie GitHub Octoverse \cite{github2023}, sztuczna inteligencja przestaje być tylko "drugim pilotem", a staje się integralną częścią środowiska IDE. Szacuje się, że w roku 2024 ponad 40\% kodu tworzonego w popularnych językach (Python, JavaScript) jest generowane lub modyfikowane przez AI.
 
 \subsection{Obszary zastosowań (Lista nienumerowana)}
-Narzędzia GenAI wspierają programistów w następujących obszarach:
+
+Współczesne narzędzia AI wspierają programistów w wielu, często nieoczywistych obszarach:
 \begin{itemize}
-    \item \textbf{Generowanie kodu boilerplate} - automatyczne tworzenie powtarzalnych fragmentów kodu.
-    \item \textbf{Refaktoryzacja} - sugerowanie bardziej optymalnych rozwiązań.
-    \item \textbf{Tworzenie testów} - automatyczne generowanie przypadków testowych.
+    \item \textbf{Generowanie kodu boilerplate} – automatyczne tworzenie powtarzalnych fragmentów kodu, takich jak konstruktory, gettery/settery, konfiguracje API czy szkielety aplikacji opartych na popularnych frameworkach (np. React, Spring Boot).
+    \item \textbf{Refaktoryzacja i optymalizacja} – sugerowanie bardziej optymalnych obliczeniowo lub czytelnych rozwiązań dla istniejących funkcji, a także automatyczna konwersja kodu legacy do nowszych standardów języka.
+    \item \textbf{Generowanie testów jednostkowych} – automatyczne tworzenie przypadków testowych na podstawie logiki biznesowej, co znacząco podnosi pokrycie kodu testami (Code Coverage).
+    \item \textbf{Tłumaczenie kodu} – konwersja algorytmów między różnymi językami programowania (np. migracja systemu z Java na Go), co tradycyjnie było procesem niezwykle czasochłonnym.
 \end{itemize}
 
-\subsection{Etapy adopcji (Lista numerowana)}
-Wdrożenie AI w organizacji przebiega w ustalonych fazach:
+\subsection{Etapy adopcji technologii (Lista numerowana)}
+
+Wdrożenie narzędzi GenAI w organizacji nie jest procesem nagłym. Zazwyczaj przebiega ono w ustalonych fazach, które pozwalają firmom zarządzać ryzykiem:
+
 \begin{enumerate}
-    \item \textbf{Eksperymentacja} - indywidualne użycie ChatGPT.
-    \item \textbf{Pilotaż} - testy narzędzi typu Copilot for Business.
-    \item \textbf{Integracja} - włączenie AI do procesów CI/CD.
-    \item \textbf{Pełna adopcja} - AI jako standardowe narzędzie pracy.
+    \item \textbf{Eksperymentacja indywidualna} – programiści używają narzędzi takich jak ChatGPT na własną rękę do rozwiązywania doraźnych problemów ("shadow IT").
+    \item \textbf{Pilotaż zespołowy} – wybrane zespoły otrzymują oficjalne licencje na narzędzia typu Copilot for Business. W tej fazie mierzy się KPI (Key Performance Indicators) takie jak czas dostarczenia funkcji (Time-to-Market).
+    \item \textbf{Integracja z CI/CD} – automatyczne sprawdzanie kodu generowanego przez AI pod kątem bezpieczeństwa i stylu w potokach wdrożeniowych.
+    \item \textbf{Pełna adopcja i transformacja} – AI staje się standardowym narzędziem, a procesy onboardingu nowych pracowników uwzględniają szkolenia z inżynierii promptów (\textit{prompt engineering}).
 \end{enumerate}
+
+Jak zauważają eksperci, kluczowym wyzwaniem w fazie trzeciej i czwartej jest zmiana mentalności programistów – z "pisarzy kodu" na "recenzentów kodu".

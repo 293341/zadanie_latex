@@ -1,13 +1,20 @@
 \chapter{Wyzwania etyczne i bezpieczeństwo kodu}
 
-Wdrożenie AI niesie ze sobą ryzyka. Badania Stanford University \cite{stanford2023} sugerują, że kod pisany z AI może zawierać więcej luk bezpieczeństwa.
+Masowe wdrożenie Generatywnej Sztucznej Inteligencji niesie ze sobą nie tylko korzyści ekonomiczne, ale również istotne ryzyka techniczne i prawne. W tym rozdziale omówiono problemy związane z jakością generowanego kodu, podatnościami na ataki oraz niejasną sytuacją prawną własności intelektualnej.
 
-\section{Główne zagrożenia}
+\section{Podatności i błędy bezpieczeństwa}
+
+Badania przeprowadzone przez zespół badawczy uniwersytetu Stanford wykazały niepokojący trend: programiści korzystający z asystentów AI mają tendencję do pisania mniej bezpiecznego kodu, będąc jednocześnie bardziej pewnymi jego poprawności \cite{stanford2023}. Wynika to z faktu, że modele LLM są trenowane na kodzie z internetu, który często zawiera błędy.
+
+Główne kategorie zagrożeń obejmują:
 \begin{itemize}
-    \item \textbf{Prompt Injection} - manipulacja modelem w celu wyciągnięcia danych.
-    \item \textbf{Halucynacje} - sugerowanie nieistniejących bibliotek.
-    \item \textbf{Wyciek danych} - przesyłanie firmowego kodu do publicznych modeli.
+    \item \textbf{Ataki typu Prompt Injection} – manipulacja modelem poprzez odpowiednio spreparowane instrukcje w celu wyciągnięcia poufnych danych z pamięci kontekstowej modelu.
+    \item \textbf{Halucynacje biblioteczne (Package Hallucinations)} – modele potrafią sugerować użycie nieistniejących pakietów o wiarygodnie brzmiących nazwach. Hakerzy wykorzystują to zjawisko, publikując złośliwe pakiety o tych właśnie nazwach (atak typu \textit{Dependency Confusion}).
+    \item \textbf{Hardcoding danych uwierzytelniających} – AI często generuje przykładowy kod zawierający "sztywne" hasła, klucze API lub adresy serwerów, które niedoświadczeni programiści mogą nieświadomie skopiować na środowisko produkcyjne.
 \end{itemize}
 
-\section{Aspekty prawne}
-Kwestia praw autorskich pozostaje nieuregulowana. Mecenas Barta \cite{barta2024} ostrzega przed ryzykiem naruszenia licencji Open Source (np. GPL), gdy model uczył się na chronionym kodzie i "zwraca" go użytkownikowi.
+\section{Aspekty prawne i prawa autorskie}
+
+Kwestia praw autorskich do kodu wygenerowanego przez AI pozostaje nieuregulowana w wielu jurysdykcjach, w tym w Unii Europejskiej i USA. Jak zauważa mecenas Barta w analizie dla branży IT \cite{barta2024}, pojawia się ryzyko tzw. "prania licencji". 
+
+Model uczony na kodzie objętym restrykcyjną licencją GPL może wygenerować fragment kodu łudząco podobny do oryginału, ale pozbawiony informacji o licencji. Wykorzystanie takiego fragmentu w komercyjnym oprogramowaniu zamkniętym (proprietary) może narazić firmę na poważne konsekwencje prawne i konieczność otwarcia kodu źródłowego całego projektu.
